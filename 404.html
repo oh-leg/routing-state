@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting...</title>
+    <script>
+      // Сохраняем путь, куда хотел попасть пользователь
+      sessionStorage.setItem('redirectPath', window.location.pathname);
+      // Кидаем на главную (index.html)
+      window.location.replace('/routing-state/');
+    </script>
+  </head>
+  <body></body>
+</html>
