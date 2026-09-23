@@ -1,0 +1,126 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.layout__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: var(--vite-bg);
+  border-bottom: 1px solid var(--vite-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+.layout__logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--vite-purple), #bd34fe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  cursor: pointer;
+}
+
+.layout__nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.layout__nav a {
+  font-weight: 500;
+  position: relative;
+  padding: 0.25rem 0;
+  color: var(--vite-text);
+}
+
+.layout__nav a:hover {
+  color: var(--vite-purple);
+}
+
+.layout__nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--vite-purple);
+  transition: width 0.3s;
+}
+
+.layout__nav a:hover::after {
+  width: 100%;
+}
+
+.layout__user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.95rem;
+  color: var(--vite-text-muted);
+}
+
+.layout__user-name {
+  color: var(--vite-text);
+  font-weight: 500;
+}
+
+.layout__logout {
+  background: transparent;
+  border: 1px solid var(--vite-border);
+  color: var(--vite-text);
+  padding: 0.4em 0.9em;
+  font-size: 0.9em;
+}
+
+.layout__logout:hover:not(:disabled) {
+  background: var(--vite-bg-secondary);
+  border-color: var(--vite-purple);
+  color: var(--vite-purple);
+  box-shadow: none;
+  transform: none;
+}
+
+.layout__main {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .layout__header {
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .layout__nav {
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .layout__main {
+    padding: 1rem;
+  }
+}
